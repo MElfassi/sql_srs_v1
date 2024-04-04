@@ -3,6 +3,8 @@ import pandas as pd
 import duckdb as db
 import io
 
+
+
 csv = '''
 beverage,price
 orange juice,2.5
@@ -28,6 +30,19 @@ cross join food_items
 
 solution = db.sql(answer).df()
 
+st.write("""
+#SQL SRS
+Space Repetition System SQL Practicce
+""")
+
+option = st.selectbox(
+    "What would you like to review",
+    ["Joins", "GroupBy", "Windows Functions"],
+    index=None,
+    placeholder="Select a Theme"
+    )
+st.write('You selected: ', option)
+
 st.header("enter your code: ")
 query = st.text_area(label="votre code sql ici", key="user_input")
 
@@ -45,3 +60,5 @@ with tab2:
 
 with tab3:
     st.write(answer)
+
+
